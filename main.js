@@ -1,7 +1,6 @@
 jQuery( document ).ready(function($) {
     console.log( "ready!" );
     $('.delete').click(function(e){
-        console.log("sdad");
         $(this).closest('tr').remove()
     })
 });
@@ -15,6 +14,11 @@ function submitForm() {
     var sex = document.getElementById("sex").value;
     var email = document.getElementById("email").value;
     var poza = document.getElementById("poza");
+    // Check if empty
+    if(nume == '' || prenume == '' || dataNasterii == '' || sex == '' || email == '' || poza.value == '') {
+        alert("Fill in all fields!");
+        return 0;
+    }
     // Add to Table
     var table = document.getElementById("angajati").getElementsByTagName('tbody')[0];
     var row = table.insertRow(0);
