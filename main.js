@@ -1,9 +1,9 @@
 jQuery( document ).ready(function($) {
     console.log( "ready!" );
-    $('.delete').click(function(){
-        console.log('asd');
+    $( '#table-body' ).on( 'click', '.delete', function () { 
+        console.log('delete');
         $(this).closest('tr').remove();
-    })
+    });
 });
 
 function submitForm() {
