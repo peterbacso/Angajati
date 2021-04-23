@@ -1,5 +1,9 @@
 jQuery( document ).ready(function($) {
     console.log( "ready!" );
+    $('.delete').click(function(e){
+        console.log("sdad");
+        $(this).closest('tr').remove()
+    })
 });
 
 function submitForm() {
@@ -27,7 +31,14 @@ function submitForm() {
     cell4.innerHTML = dataNasterii;
     cell5.innerHTML = sex;
     cell6.innerHTML = email;
-    cell7.innerHTML = "<a onlick='deleteAngajat'>Delete</a>";
+    cell7.innerHTML = "<a class='delete'>Delete</a>";
+    // Empty inputs
+    document.getElementById("nume").value = '';
+    document.getElementById("prenume").value = '';
+    document.getElementById("data-nasterii").value = '';
+    document.getElementById("sex").value = '';
+    document.getElementById("email").value = '';
+    document.getElementById("poza").value = null;
 }
 
 function readURL(input, imgCell) {
