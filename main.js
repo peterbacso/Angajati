@@ -37,7 +37,7 @@ function submitForm() {
     var cell5 = row.insertCell(4);
     var cell6 = row.insertCell(5);
     var cell7 = row.insertCell(6);
-    readURL(poza, cell7);
+    readURL(poza);
     cell1.innerHTML = '<img id="pozaProfil" src="#">';
     cell2.innerHTML = nume;
     cell3.innerHTML = prenume;
@@ -54,7 +54,7 @@ function submitForm() {
     document.getElementById("poza").value = null;
 }
 
-function readURL(input, imgCell) {
+function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
