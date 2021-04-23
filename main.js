@@ -1,7 +1,8 @@
 jQuery( document ).ready(function($) {
     console.log( "ready!" );
-    $('.delete').click(function(e){
-        $(this).closest('tr').remove()
+    $('.delete').click(function(){
+        console.log('asd');
+        $(this).closest('tr').remove();
     })
 });
 
