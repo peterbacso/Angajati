@@ -1,7 +1,5 @@
 jQuery( document ).ready(function($) {
     console.log( "ready!" );
-    
-    console.log(document.getElementById("angajati"));
 });
 
 function submitForm() {
@@ -22,11 +20,24 @@ function submitForm() {
     var cell5 = row.insertCell(4);
     var cell6 = row.insertCell(5);
     var cell7 = row.insertCell(6);
-    cell1.innerHTML = poza;
+    readURL(poza, cell7);
+    cell1.innerHTML = '<img id="pozaProfil" src="#">';
     cell2.innerHTML = nume;
     cell3.innerHTML = prenume;
     cell4.innerHTML = dataNasterii;
     cell5.innerHTML = sex;
     cell6.innerHTML = email;
-    cell7.innerHTML = "delete";
+    cell7.innerHTML = "<a onlick='deleteAngajat'>Delete</a>";
+}
+
+function readURL(input, imgCell) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#pozaProfil').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }

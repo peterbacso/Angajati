@@ -11,3 +11,8 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+#pozaProfil {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
