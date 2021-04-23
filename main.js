@@ -10,7 +10,8 @@ function submitForm() {
     // Get Inputs
     var nume = document.getElementById("nume").value;
     var prenume = document.getElementById("prenume").value;
-    var dataNasterii = document.getElementById("data-nasterii").value;
+    var dataNasterii = formatDate(document.getElementById("data-nasterii").value);
+
     var sex = document.getElementById("sex").value;
     var email = document.getElementById("email").value;
     var poza = document.getElementById("poza");
@@ -51,4 +52,10 @@ function readURL(input, imgCell) {
 
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+function formatDate(userDate) {
+    var d = new Date(userDate);
+    const monthNames = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+    return d.getDay() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
 }
