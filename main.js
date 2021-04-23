@@ -11,13 +11,20 @@ function submitForm() {
     var nume = document.getElementById("nume").value;
     var prenume = document.getElementById("prenume").value;
     var dataNasterii = formatDate(document.getElementById("data-nasterii").value);
-
     var sex = document.getElementById("sex").value;
     var email = document.getElementById("email").value;
     var poza = document.getElementById("poza");
     // Check if empty
     if(nume == '' || prenume == '' || dataNasterii == '' || sex == '' || email == '' || poza.value == '') {
         alert("Fill in all fields!");
+        return 0;
+    }
+    if(validateEmail(email) == false) {
+        alert("Email format not valid. Check: " + email);
+        return 0;
+    }
+    if(checkImage(poza.value) == false) {
+        alert("Image format not accepted.");
         return 0;
     }
     // Add to Table
@@ -63,4 +70,14 @@ function formatDate(userDate) {
     var d = new Date(userDate);
     const monthNames = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
     return d.getDay() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function checkImage(numePoza) {
+    if(numePoza.indexOf('.jpg') >= 0 || numePoza.indexOf('.jpeg') >= 0 || numePoza.indexOf('.png') >= 0) return true;
+    return false;
 }
