@@ -35,11 +35,31 @@
             </tr>
         </table>
         <form>
-            <label for="fname">Nume:</label><br>
-            <input type="text" id="fname" name="fname" placeholder="John"><br>
-            <label for="lname">Prenume:</label><br>
-            <input type="text" id="lname" name="lname" placeholder="Doe"><br><br>
+            <!-- Nume -->
+            <label for="nume">Nume:</label><br>
+            <input type="text" id="nume" name="nume"><br>
+            <!-- Prenume -->
+            <label for="prenume">Prenume:</label><br>
+            <input type="text" id="prenume" name="prenume"><br>
+            <!-- Data Nasterii -->
+            <label for="data-nasterii">Data nasterii:</label><br>
+            <input type="date" id="data-nasterii" name="data-nasterii"><br>
+            <!-- Sex -->
+            <label for="sex">Sex: </label>
+            <select id="sex" name="sex">
+                <option value="masculin">masculin</option>
+                <option value="feminin">feminin</option>
+                <option value="indecis">indecis</option>
+            </select><br>
+            <!-- Email -->
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <!-- Poza -->
+            <label for="poza">Poza:</label><br>
+            <input type="file" name="poza" id="poza">
+            <br><br>
+            <!-- Submit -->
             <input type="submit" value="Submit">
-          </form> 
+        </form> 
     </body>
 </html>
