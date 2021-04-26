@@ -38,8 +38,9 @@ function submitForm() {
     var cell5 = row.insertCell(4);
     var cell6 = row.insertCell(5);
     var cell7 = row.insertCell(6);
-    readURL(poza);
-    cell1.innerHTML = '<img id="pozaProfil" src="#">';
+    var id = table.getElementsByTagName("tr").length;
+    readURL(poza, id);
+    cell1.innerHTML = '<img id="pozaProfil-'+id+'" class="poza" src="#">';
     cell2.innerHTML = nume;
     cell3.innerHTML = prenume;
     cell4.innerHTML = dataNasterii;
@@ -55,12 +56,12 @@ function submitForm() {
     document.getElementById("poza").value = null;
 }
 
-function readURL(input) {
+function readURL(input, id) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#pozaProfil').attr('src', e.target.result);
+            $('#pozaProfil-' + id).attr('src', e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
