@@ -69,7 +69,7 @@ function readURL(input) {
 function formatDate(userDate) {
     var d = new Date(userDate);
     const monthNames = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
-    return d.getDay() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
+    return d.getDate() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
 }
 
 function validateEmail(email) {
