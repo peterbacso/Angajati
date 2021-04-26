@@ -83,7 +83,7 @@ function checkImage(numePoza) {
 }
 
 // Search
-function searchFunction() {
+function searchAngajat() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
@@ -94,6 +94,26 @@ function searchFunction() {
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }       
+    }
+}
+
+// Sex Filter
+function filterSex() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("sexFilter");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("angajati");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[4];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase() == filter) {
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
