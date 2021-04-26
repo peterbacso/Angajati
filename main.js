@@ -10,7 +10,8 @@ function submitForm() {
     // Get Inputs
     var nume = document.getElementById("nume").value;
     var prenume = document.getElementById("prenume").value;
-    var dataNasterii = formatDate(document.getElementById("data-nasterii").value);
+    // var dataNasterii = formatDate(document.getElementById("data-nasterii").value);
+    var dataNasterii = document.getElementById("data-nasterii").value;
     var sex = document.getElementById("sex").value;
     var email = document.getElementById("email").value;
     var poza = document.getElementById("poza");
@@ -153,4 +154,4 @@ function sortTableByDate() {
             switching = true;
         }
     }
-  }
+}
