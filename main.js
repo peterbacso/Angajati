@@ -113,7 +113,7 @@ function filterSex() {
         td = tr[i].getElementsByTagName("td")[4];
         if (td) {
             txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase() == filter) {
+            if (txtValue.toUpperCase() == filter || filter == "ALL") {
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
@@ -121,3 +121,36 @@ function filterSex() {
         }       
     }
 }
+
+function sortTableByDate() {
+    var sortAttribute = document.getElementById("sortDateButton").getAttribute("sort");
+    if(sortAttribute == "up") document.getElementById("sortDateButton").setAttribute("sort", "down");
+    else document.getElementById("sortDateButton").setAttribute("sort", "up");
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("angajati");
+    switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = new Date(rows[i].getElementsByTagName("td")[3].innerText);
+            y = new Date(rows[i + 1].getElementsByTagName("td")[3].innerText);
+            if(sortAttribute == "up") {
+                if (x < y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if(sortAttribute == "down") {
+                if (x > y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+  }
